@@ -1,0 +1,29 @@
+/*
+ * PyRawRead.cpp
+ *
+ *  Created on: Oct 15, 2013
+ *      Author: speters
+ */
+
+#include "pyRawRead.h"
+#include "rawParser.hpp"
+
+
+PyRawRead::PyRawRead() {
+	rp=NULL;
+}
+
+PyRawRead::PyRawRead(const char *file) {
+	//rawParser rr(file);
+	//rp=&rr;
+	rp=NULL;
+}
+void PyRawRead::Read() {
+	rawParser* rr=(rawParser*)rp;
+	rr->Read();
+}
+PyRawRead::~PyRawRead() {
+	rawParser* rr=(rawParser*)rp;
+	rr->~rawParser();
+}
+
